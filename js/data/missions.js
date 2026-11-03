@@ -1,7 +1,161 @@
-/* type: quiz/compare は選択式、observe/think は自分の言葉で記録するミッション。 */
-window.TOWN_MISSIONS=[{"id":"library-01","placeId":"library","title":"図書館のひみつ","category":"施設探検","icon":"📚","type":"quiz","intro":"図書館にやってきたよ。本を借りたり、調べものをしたりできるね。","question":"図書館でできることはどれかな？","choices":["本を借りたり、読んだりする","パンを買う","消防車に乗る"],"answer":0,"hint":"図書館には、たくさんの本がならんでいるよ。","explanation":"図書館では、本を読んだり借りたり、調べものをしたりできるよ。みんなが使う公共施設なんだ。","reward":{"points":10,"discovery":"図書館"}},{"id":"post-01","placeId":"post","title":"手紙をとどけよう","category":"施設探検","icon":"📮","type":"quiz","intro":"郵便局に手紙が届いたよ。手紙はどうやって相手に届くのかな？","question":"手紙を届ける仕事をしているのはだれ？","choices":["郵便局の人","パン屋さん","消防士"],"answer":0,"hint":"赤いポストに手紙を入れたあと、配達する人がいるよ。","explanation":"郵便局では、手紙や荷物を集めて届ける仕事をしているよ。","reward":{"points":10,"discovery":"郵便局"}},{"id":"fire-01","placeId":"fire","title":"消防署をたんけん","category":"施設探検","icon":"🚒","type":"quiz","intro":"消防署では、町の安全を守るために準備をしているよ。","question":"火事が起きたときに活やくする車はどれ？","choices":["バス","消防車","郵便車"],"answer":1,"hint":"赤い色の大きな車を思い出してみよう。","explanation":"消防車は火事の現場に向かい、火を消すために使われるよ。消防士さんは訓練もしているんだ。","reward":{"points":10,"discovery":"消防署"}},{"id":"shop-01","placeId":"shop","title":"パン屋さんのおしごと","category":"施設探検","icon":"🥐","type":"quiz","intro":"パン屋さんでは、朝早くからパンを作っているよ。","question":"パンを作るときに使うものはどれかな？","choices":["小麦粉","砂","石"],"answer":0,"hint":"パンの材料には、小麦から作る粉があるよ。","explanation":"パンは小麦粉や水、酵母などを使って作るよ。お店の人は、お客さんにパンを届けているんだ。","reward":{"points":10,"discovery":"パン屋さん"}},{"id":"park-01","placeId":"park","title":"公園のしぜんを見つけよう","category":"公園・遊び探検","icon":"🌳","type":"quiz","intro":"公園には、いろいろな草花や生き物がいるよ。","question":"公園で生き物を見つけたら、どうするといいかな？","choices":["むやみに持ち帰る","やさしく観察して、元の場所に戻す","大きな声でおどかす"],"answer":1,"hint":"生き物が安心してくらせるように考えよう。","explanation":"生き物を見つけたら、そっと観察しよう。観察したあとは、もといた場所に戻してあげるといいね。","reward":{"points":10,"discovery":"公園の自然"}},{"id":"school-01","placeId":"school","title":"学校のまわりを見てみよう","category":"施設探検","icon":"🏫","type":"quiz","intro":"学校には、みんなが気持ちよく過ごすための場所やきまりがあるよ。","question":"ろうかを歩くとき、どんな歩き方が安全かな？","choices":["走る","右側を静かに歩く","友だちを押す"],"answer":1,"hint":"走ると、曲がり角で人とぶつかるかもしれないね。","explanation":"ろうかは右側を歩くなど、学校のきまりを守ると、みんなが安全に過ごせるね。","reward":{"points":10,"discovery":"学校"}},{"id":"police-01","placeId":"police","title":"交番の警察官","category":"施設探検","icon":"🚓","type":"quiz","intro":"交番には、町の安全を守る警察官がいるよ。","question":"道に迷って困っている人がいたら、どこで相談できるかな？","choices":["交番","パン屋","公園のすべり台"],"answer":0,"hint":"町の安全を守る警察官がいる場所だよ。","explanation":"交番では、道案内や落とし物の相談などもできるよ。警察官は町の安全を守っているんだ。","reward":{"points":10,"discovery":"交番"}}].concat([
+/* type: quiz は選択式、observe/think/compare は自分の言葉で記録するミッション。 */
+window.TOWN_MISSIONS=[
   {
     "id": "library-01",
+    "placeId": "library",
+    "title": "図書館のひみつ",
+    "category": "施設探検",
+    "icon": "📚",
+    "type": "quiz",
+    "intro": "図書館にやってきたよ。本を借りたり、調べものをしたりできるね。",
+    "question": "図書館でできることはどれかな？",
+    "choices": [
+      "本を借りたり、読んだりする",
+      "パンを買う",
+      "消防車に乗る"
+    ],
+    "answer": 0,
+    "hint": "図書館には、たくさんの本がならんでいるよ。",
+    "explanation": "図書館では、本を読んだり借りたり、調べものをしたりできるよ。みんなが使う公共施設なんだ。",
+    "reward": {
+      "points": 10,
+      "discovery": "図書館"
+    }
+  },
+  {
+    "id": "post-01",
+    "placeId": "post",
+    "title": "手紙をとどけよう",
+    "category": "施設探検",
+    "icon": "📮",
+    "type": "quiz",
+    "intro": "郵便局に手紙が届いたよ。手紙はどうやって相手に届くのかな？",
+    "question": "手紙を届ける仕事をしているのはだれ？",
+    "choices": [
+      "郵便局の人",
+      "パン屋さん",
+      "消防士"
+    ],
+    "answer": 0,
+    "hint": "赤いポストに手紙を入れたあと、配達する人がいるよ。",
+    "explanation": "郵便局では、手紙や荷物を集めて届ける仕事をしているよ。",
+    "reward": {
+      "points": 10,
+      "discovery": "郵便局"
+    }
+  },
+  {
+    "id": "fire-01",
+    "placeId": "fire",
+    "title": "消防署をたんけん",
+    "category": "施設探検",
+    "icon": "🚒",
+    "type": "quiz",
+    "intro": "消防署では、町の安全を守るために準備をしているよ。",
+    "question": "火事が起きたときに活やくする車はどれ？",
+    "choices": [
+      "バス",
+      "消防車",
+      "郵便車"
+    ],
+    "answer": 1,
+    "hint": "赤い色の大きな車を思い出してみよう。",
+    "explanation": "消防車は火事の現場に向かい、火を消すために使われるよ。消防士さんは訓練もしているんだ。",
+    "reward": {
+      "points": 10,
+      "discovery": "消防署"
+    }
+  },
+  {
+    "id": "shop-01",
+    "placeId": "shop",
+    "title": "パン屋さんのおしごと",
+    "category": "施設探検",
+    "icon": "🥐",
+    "type": "quiz",
+    "intro": "パン屋さんでは、朝早くからパンを作っているよ。",
+    "question": "パンを作るときに使うものはどれかな？",
+    "choices": [
+      "小麦粉",
+      "砂",
+      "石"
+    ],
+    "answer": 0,
+    "hint": "パンの材料には、小麦から作る粉があるよ。",
+    "explanation": "パンは小麦粉や水、酵母などを使って作るよ。お店の人は、お客さんにパンを届けているんだ。",
+    "reward": {
+      "points": 10,
+      "discovery": "パン屋さん"
+    }
+  },
+  {
+    "id": "park-01",
+    "placeId": "park",
+    "title": "公園のしぜんを見つけよう",
+    "category": "公園・遊び探検",
+    "icon": "🌳",
+    "type": "quiz",
+    "intro": "公園には、いろいろな草花や生き物がいるよ。",
+    "question": "公園で生き物を見つけたら、どうするといいかな？",
+    "choices": [
+      "むやみに持ち帰る",
+      "やさしく観察して、元の場所に戻す",
+      "大きな声でおどかす"
+    ],
+    "answer": 1,
+    "hint": "生き物が安心してくらせるように考えよう。",
+    "explanation": "生き物を見つけたら、そっと観察しよう。観察したあとは、もといた場所に戻してあげるといいね。",
+    "reward": {
+      "points": 10,
+      "discovery": "公園の自然"
+    }
+  },
+  {
+    "id": "school-01",
+    "placeId": "school",
+    "title": "学校のまわりを見てみよう",
+    "category": "施設探検",
+    "icon": "🏫",
+    "type": "quiz",
+    "intro": "学校には、みんなが気持ちよく過ごすための場所やきまりがあるよ。",
+    "question": "ろうかを歩くとき、どんな歩き方が安全かな？",
+    "choices": [
+      "走る",
+      "右側を静かに歩く",
+      "友だちを押す"
+    ],
+    "answer": 1,
+    "hint": "走ると、曲がり角で人とぶつかるかもしれないね。",
+    "explanation": "ろうかは右側を歩くなど、学校のきまりを守ると、みんなが安全に過ごせるね。",
+    "reward": {
+      "points": 10,
+      "discovery": "学校"
+    }
+  },
+  {
+    "id": "police-01",
+    "placeId": "police",
+    "title": "交番の警察官",
+    "category": "施設探検",
+    "icon": "🚓",
+    "type": "quiz",
+    "intro": "交番には、町の安全を守る警察官がいるよ。",
+    "question": "道に迷って困っている人がいたら、どこで相談できるかな？",
+    "choices": [
+      "交番",
+      "パン屋",
+      "公園のすべり台"
+    ],
+    "answer": 0,
+    "hint": "町の安全を守る警察官がいる場所だよ。",
+    "explanation": "交番では、道案内や落とし物の相談などもできるよ。警察官は町の安全を守っているんだ。",
+    "reward": {
+      "points": 10,
+      "discovery": "交番"
+    }
+  },
+  {
+    "id": "library-extra-01",
     "placeId": "library",
     "title": "本をさがそう",
     "category": "施設探検",
@@ -849,7 +1003,7 @@ window.TOWN_MISSIONS=[{"id":"library-01","placeId":"library","title":"図書館�
     }
   },
   {
-    "id": "shop-01",
+    "id": "shop-extra-01",
     "placeId": "shop",
     "title": "お店の人の仕事",
     "category": "人・くらし探検",
@@ -1055,7 +1209,7 @@ window.TOWN_MISSIONS=[{"id":"library-01","placeId":"library","title":"図書館�
     }
   },
   {
-    "id": "park-01",
+    "id": "park-extra-01",
     "placeId": "park",
     "title": "遊具をさがそう",
     "category": "公園・遊び探検",
@@ -1692,4 +1846,4 @@ window.TOWN_MISSIONS=[{"id":"library-01","placeId":"library","title":"図書館�
       "discovery": "町の施設"
     }
   }
-]);
+];
