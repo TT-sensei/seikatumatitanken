@@ -61,3 +61,13 @@ aside{display:flex;flex-direction:column;gap:14px}.guide{display:flex;gap:13px;b
 .marker:focus-visible{outline:4px solid #32866a}
 @media(max-width:600px){.traveler{font-size:25px}.traveler span{top:24px;font-size:9px}.map-status{align-items:flex-start;line-height:1.5}.map-hint{display:none}}
 @media(prefers-reduced-motion:reduce){#route-path,.marker.mission{animation:none}.traveler,.marker{transition:none}}
+
+/* 分野フィルター・自由記述欄 */
+#mission-filter{width:100%;margin:10px 0 4px;padding:10px 12px;border:1px solid #dce7dc;border-radius:10px;background:#f8fbf7;color:#294138;font:inherit;font-size:13px;font-weight:700}
+#mission-list{max-height:560px;overflow:auto;padding-right:3px}
+#reflection-input,#town-note-input{width:100%;display:block;resize:vertical;border:1px solid #dce7dc;border-radius:12px;padding:12px;background:#fff;color:#294138;font:inherit;font-size:14px;line-height:1.7}
+#reflection-input:focus,#town-note-input:focus,#mission-filter:focus{outline:3px solid #b8dec2;outline-offset:1px}
+.modal h3{font-size:14px;margin:20px 0 8px;color:#32866a}
+.modal .mission-row{margin:7px 0}
+ruby{ruby-position:over}
+ruby rt{font-size:.55em;color:#718078;font-weight:500}
