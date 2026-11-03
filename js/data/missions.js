@@ -1692,4 +1692,4 @@ window.TOWN_MISSIONS=[{"id":"library-01","placeId":"library","title":"図書館�
       "discovery": "町の施設"
     }
   }
-];
+]);
