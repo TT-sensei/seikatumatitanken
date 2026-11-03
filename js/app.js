@@ -44,7 +44,7 @@ function travelTo(p,afterArrival){
 }
 function start(m){active=m;selected=null;answered=false;questionView()}
 function questionView(){
- const m=active,free=m.type==="observe"||m.type==="think";
+ const m=active,free=m.type==="observe"||m.type==="think"||m.type==="compare";
  const answers=free?'<textarea id="reflection-input" rows="3" placeholder="'+esc(m.placeholder||"気づいたことを書いてね。")+'"></textarea>':'<div class="answers">'+m.choices.map((c,i)=>'<button class="answer '+(answered&&i===m.answer?"correct ":"")+(answered&&selected===i&&i!==m.answer?"wrong":"")+'" data-answer="'+i+'" '+(answered?"disabled":"")+'>'+["①","②","③","④"][i]+'　'+rich(c)+'</button>').join("")+'</div>';
  open('<div class="hero">'+m.icon+'</div><div class="label">'+rich(m.category)+' ・ '+typeName(m.type)+'</div><h2>'+rich(m.title)+'</h2><p class="lead">'+rich(m.intro)+'</p><div class="question">'+rich(m.question)+'</div>'+answers+'<button class="hint" id="hint">💡 ヒントをみる</button><div id="hint-area"></div><div id="feedback"></div><button class="primary" id="next" '+(!free&&!answered?"disabled":"")+'>'+(free?"記録してクリア":"つぎへ")+'</button>');
  if(!free)document.querySelectorAll("[data-answer]").forEach(b=>b.onclick=()=>{selected=Number(b.dataset.answer);answered=true;questionView();const ok=selected===m.answer;$("feedback").innerHTML='<div class="feedback '+(ok?"good":"try")+'">'+(ok?"正解！ ":"おしい！もう一度考えてみよう。 ")+(ok?rich(m.explanation):"ヒントも使えるよ。")+'</div>';$("next").disabled=false;$("next").textContent=ok?"つぎへ":"もう一度ちょうせん"});
