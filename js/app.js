@@ -42,7 +42,7 @@ function placeView(p){
  open('<div class="hero">'+p.icon+'</div><div class="label">みどりのまち・たんけん</div><h2>'+p.name+'</h2><p class="lead">'+p.description+'</p>'+(m?'<div class="question">✨ '+m.title+'<br><small>この場所でミッションにちょうせん！</small></div><button class="primary" id="start">ミッションをはじめる</button>':done?'<div class="question">🏅 この場所のミッションはクリア！</div><p class="lead">ほかの場所にも行ってみよう。新しい発見があるかもしれないよ。</p>':'<p class="lead">ここを見つけたよ！町の様子をよく見てみよう。</p>'));
  if(m)$('start').onclick=()=>start(m);
 }
-function travelTo(p){
+function travelTo(p,afterArrival){
  if(isWalking)return;
  isWalking=true;
  document.querySelectorAll('.marker').forEach(el=>el.classList.toggle('selected',el.dataset.place===p.id));
@@ -53,7 +53,7 @@ function travelTo(p){
   state.player={x:p.x,y:p.y};if(!state.visited.includes(p.id))state.visited.push(p.id);save();
   isWalking=false;setMapStatus(p.name+'に着いたよ！まわりを探検してみよう。');
   document.querySelectorAll('.marker').forEach(el=>el.classList.toggle('selected',el.dataset.place===p.id));
-  placeView(p);
+  if(typeof afterArrival==='function')afterArrival();else placeView(p);
  },1180);
 }
 function start(m){active=m;selected=null;answered=false;questionView()}
@@ -82,7 +82,7 @@ function notes(){
  $('finish').onclick=close;
 }
 $('markers').onclick=e=>{const b=e.target.closest('[data-place]');if(b){const p=placeById(b.dataset.place);if(p)travelTo(p)}};
-$('mission-list').onclick=e=>{const b=e.target.closest('[data-mission]');if(b){const m=missions.find(x=>x.id===b.dataset.mission);if(m&&!state.completed.includes(m.id)){const p=placeById(m.placeId);if(p&&Math.hypot(state.player.x-p.x,state.player.y-p.y)>1){travelTo(p);return}start(m)}}};
+$('mission-list').onclick=e=>{const b=e.target.closest('[data-mission]');if(b){const m=missions.find(x=>x.id===b.dataset.mission);if(m&&!state.completed.includes(m.id)){const p=placeById(m.placeId);if(p&&Math.hypot(state.player.x-p.x,state.player.y-p.y)>1){travelTo(p,()=>start(m));return}start(m)}}};
 $('open-notes').onclick=notes;$('close').onclick=close;
 $('backdrop').onclick=e=>{if(e.target===$('backdrop'))close()};
 $('help').onclick=()=>{open('<div class="hero">🧭</div><h2>あそびかた</h2><p class="lead">地図のマークをタップすると、その場所まで歩いていくよ。着いたら、町の様子を見たりミッションにちょうせんしたりしよう。クリアした場所にはしるしがつくよ。進みぐあいは、この端末に自動で保存されるよ。</p><button class="primary" id="finish">探検にもどる</button>');$('finish').onclick=close};
