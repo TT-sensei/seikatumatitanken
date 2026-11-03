@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#edf5ed"><title>まちたんけん！</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="top"><div class="logo"><span>ま</span> まちたんけん！</div><div class="stats">⭐ <b id="points">0</b>　🔎 <b id="discoveries">0</b>　<button id="help">？</button></div></header>
+<main class="layout"><section class="map-panel"><div class="heading"><div><small>ぼうけんの まち</small><h1>みどりのまち</h1></div><span class="weather">☀️ はれ</span></div><p class="muted">気になる場所をタップして、町を探検しよう！</p>
+<div class="map" id="map"><div class="river"></div><div class="road rh"></div><div class="road rv"></div><div class="park">🌳　🌷　🌳<br><small>みどり公園</small></div><div class="field">🌱 🌱 🌱<br><small>まちの はたけ</small></div><div id="markers"></div><div class="compass">N ↑</div></div><div class="legend">🟢 探検できる　 ✨ ミッションあり　 ✓ クリア</div></section>
+<aside><section class="guide"><div class="avatar">🧭</div><div><small>たんけんガイド</small><h2>こんにちは！</h2><p>町には、まだまだ知らないことがいっぱい。いっしょに見つけよう！</p></div></section><section class="panel"><div class="panel-title"><h2>ミッション</h2><b id="progress">0 / 0</b></div><div id="mission-list"></div></section><section class="panel"><div class="panel-title"><h2>はっけんノート</h2><button class="link" id="open-notes">ぜんぶ見る</button></div><div id="notes">ミッションをクリアして、発見を集めよう！</div></section></aside></main>
+<div class="backdrop hidden" id="backdrop"><section class="modal"><button class="close" id="close">×</button><div id="modal-content"></div></section></div><script src="js/data/places.js"></script><script src="js/data/missions.js"></script><script src="js/app.js"></script></body></html>
