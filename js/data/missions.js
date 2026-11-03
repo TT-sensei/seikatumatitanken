@@ -515,7 +515,7 @@ window.TOWN_MISSIONS=[
     "title": "木の下と日なた",
     "category": "自然・生きもの探検",
     "icon": "🦋",
-    "type": "compare",
+    "type": "quiz",
     "intro": "まちの自然をよく見てみよう！",
     "question": "木の下と日なたでは、どちらがすずしいかな？",
     "choices": [
