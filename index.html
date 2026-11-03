@@ -3,6 +3,52 @@
 <body>
 <header class="top"><div class="logo"><span>ま</span> まちたんけん！</div><div class="stats">⭐ <b id="points">0</b>　🔎 <b id="discoveries">0</b>　<button id="help">？</button></div></header>
 <main class="layout"><section class="map-panel"><div class="heading"><div><small>ぼうけんの まち</small><h1>みどりのまち</h1></div><span class="weather">☀️ はれ</span></div><p class="muted">気になる場所をタップして、町を探検しよう！</p>
-<div class="map" id="map"><div class="river"></div><div class="road rh"></div><div class="road rv"></div><div class="park">🌳　🌷　🌳<br><small>みどり公園</small></div><div class="field">🌱 🌱 🌱<br><small>まちの はたけ</small></div><div id="markers"></div><div class="compass">N ↑</div></div><div class="legend">🟢 探検できる　 ✨ ミッションあり　 ✓ クリア</div></section>
+<div class="map" id="map" aria-label="みどりのまちの地図">
+<svg class="town-map" viewBox="0 0 1000 700" role="img" aria-label="川や道路、公園、畑、家がある町の地図" preserveAspectRatio="xMidYMid meet">
+<defs>
+<pattern id="grass" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="5" cy="7" r="1.5" fill="#c7dcb8" opacity=".55"/><circle cx="24" cy="25" r="1.2" fill="#c7dcb8" opacity=".45"/></pattern>
+<pattern id="water" width="70" height="36" patternUnits="userSpaceOnUse"><path d="M5 12q12-7 24 0t24 0" fill="none" stroke="#a6dce0" stroke-width="3" opacity=".8"/></pattern>
+</defs>
+<rect width="1000" height="700" fill="#e7f0d9"/><rect width="1000" height="700" fill="url(#grass)"/>
+<!-- green spaces and fields -->
+<path d="M28 490Q65 445 220 468T285 650Q185 690 55 645Z" fill="#c0dfa9" stroke="#a5cc90" stroke-width="7"/>
+<path d="M40 510Q120 475 250 510M35 560Q130 530 260 565" fill="none" stroke="#a5cc90" stroke-width="3" opacity=".8"/>
+<path d="M760 515Q865 470 980 520L1000 690 740 690Z" fill="#e3d7a6" stroke="#cbbf8d" stroke-width="7"/>
+<path d="M790 540l170 105M770 585l150 95M845 520l120 80" stroke="#c7b77e" stroke-width="4" opacity=".8"/>
+<!-- river -->
+<path d="M900 -30C810 80 910 160 820 260S870 430 760 520 780 650 690 740" fill="none" stroke="#b3dfe2" stroke-width="145" stroke-linecap="round"/>
+<path d="M900 -30C810 80 910 160 820 260S870 430 760 520 780 650 690 740" fill="none" stroke="#83c8d2" stroke-width="116" stroke-linecap="round"/>
+<path d="M900 -30C810 80 910 160 820 260S870 430 760 520 780 650 690 740" fill="none" stroke="url(#water)" stroke-width="100" stroke-linecap="round"/>
+<!-- road network -->
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M-30 330C180 295 340 350 520 325S820 300 1030 335" stroke="#d7c9a8" stroke-width="88"/>
+<path d="M-30 330C180 295 340 350 520 325S820 300 1030 335" stroke="#fff8e8" stroke-width="75"/>
+<path d="M430 -30C405 120 470 235 445 360S420 570 455 730" stroke="#d7c9a8" stroke-width="76"/>
+<path d="M430 -30C405 120 470 235 445 360S420 570 455 730" stroke="#fff8e8" stroke-width="64"/>
+<path d="M90 120Q280 90 430 150T740 155" stroke="#d7c9a8" stroke-width="42"/>
+<path d="M90 120Q280 90 430 150T740 155" stroke="#fff8e8" stroke-width="34"/>
+<path d="M140 470Q320 440 455 490T700 470" stroke="#d7c9a8" stroke-width="38"/>
+<path d="M140 470Q320 440 455 490T700 470" stroke="#fff8e8" stroke-width="30"/>
+</g>
+<!-- bridge -->
+<g transform="translate(796 375) rotate(-24)"><rect x="-62" y="-20" width="124" height="40" rx="7" fill="#c49c6b" stroke="#98734e" stroke-width="5"/><path d="M-40 -17V17M0 -17V17M40 -17V17" stroke="#f3dfbd" stroke-width="5"/></g>
+<!-- houses and trees -->
+<g stroke="#fff" stroke-width="5">
+<g transform="translate(110 205)"><rect width="78" height="62" rx="8" fill="#f3c7a7"/><path d="M-8 7L39 -26 86 7Z" fill="#c87962"/><rect x="29" y="30" width="20" height="32" fill="#fff0cf"/></g>
+<g transform="translate(245 110)"><rect width="76" height="58" rx="8" fill="#f6d69d"/><path d="M-8 7L38 -25 84 7Z" fill="#d58d62"/></g>
+<g transform="translate(610 85)"><rect width="78" height="62" rx="8" fill="#f4c5b2"/><path d="M-8 7L39 -27 86 7Z" fill="#bd796c"/></g>
+<g transform="translate(625 400)"><rect width="76" height="58" rx="8" fill="#f4d59f"/><path d="M-8 7L38 -25 84 7Z" fill="#c98a5e"/></g>
+<g transform="translate(240 570)"><rect width="72" height="55" rx="8" fill="#eebfae"/><path d="M-8 7L36 -24 80 7Z" fill="#bd796c"/></g>
+</g>
+<g fill="#78a96c"><circle cx="70" cy="390" r="24"/><circle cx="110" cy="420" r="19"/><circle cx="315" cy="220" r="20"/><circle cx="570" cy="220" r="24"/><circle cx="710" cy="250" r="18"/><circle cx="570" cy="570" r="22"/><circle cx="920" cy="445" r="20"/></g>
+<g fill="#9bc987"><circle cx="70" cy="385" r="15"/><circle cx="110" cy="415" r="12"/><circle cx="315" cy="215" r="13"/><circle cx="570" cy="215" r="16"/><circle cx="710" cy="245" r="12"/><circle cx="570" cy="565" r="14"/><circle cx="920" cy="440" r="13"/></g>
+<!-- park flower beds -->
+<g fill="#f4d47a"><circle cx="85" cy="545" r="7"/><circle cx="145" cy="600" r="7"/><circle cx="215" cy="540" r="7"/></g>
+<g fill="#fff" opacity=".8"><circle cx="85" cy="545" r="3"/><circle cx="145" cy="600" r="3"/><circle cx="215" cy="540" r="3"/></g>
+<g font-family="sans-serif" font-weight="700" fill="#71866c" font-size="20"><text x="70" y="665">みどり公園</text><text x="825" y="675">まちの はたけ</text><text x="885" y="210" transform="rotate(65 885 210)">みどり川</text></g>
+</svg>
+<div class="map-label label-station">🏘️ 住宅地</div><div class="map-label label-river">みどり川</div>
+<div id="markers"></div><div class="compass"><span>北</span><b>↑</b></div>
+<div class="map-scale">みどりのまち ガイドマップ</div></div><div class="legend">🟢 探検できる　 ✨ ミッションあり　 ✓ クリア</div></section>
 <aside><section class="guide"><div class="avatar">🧭</div><div><small>たんけんガイド</small><h2>こんにちは！</h2><p>町には、まだまだ知らないことがいっぱい。いっしょに見つけよう！</p></div></section><section class="panel"><div class="panel-title"><h2>ミッション</h2><b id="progress">0 / 0</b></div><div id="mission-list"></div></section><section class="panel"><div class="panel-title"><h2>はっけんノート</h2><button class="link" id="open-notes">ぜんぶ見る</button></div><div id="notes">ミッションをクリアして、発見を集めよう！</div></section></aside></main>
 <div class="backdrop hidden" id="backdrop"><section class="modal"><button class="close" id="close">×</button><div id="modal-content"></div></section></div><script src="js/data/places.js"></script><script src="js/data/missions.js"></script><script src="js/app.js"></script></body></html>
